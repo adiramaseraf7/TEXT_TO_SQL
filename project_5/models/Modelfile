@@ -1,0 +1,9 @@
+FROM ./text2sql-qwen2.5-1.5b.gguf
+
+TEMPLATE """{{ .Prompt }}"""
+
+PARAMETER stop "###"
+PARAMETER temperature 0.1
+PARAMETER num_ctx 2048
+
+SYSTEM """You are a Text-to-SQL specialist. Given a database schema and a question, write a single syntactically correct SQLite SELECT query that answers the question. Only output the SQL query, nothing else."""
